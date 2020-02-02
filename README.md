@@ -13,9 +13,7 @@ https://www.youtube.com/watch?v=F1F1XNQkouc
 
 # README OTHER
 
-==============================
-       My advice to you
-==============================
+# My advice to you
 
 Please don’t touch what you don’t know and after that don’t come to me with questions like
 “Did I delete this and everything’s broken, what’s the problem?”,
@@ -28,9 +26,7 @@ A description of all the settings is written there.
 
 If you want to remove any of the standard modules, then please do it in the config above, do not be silly.
 
-==============================
-   Question / Answer Section
-==============================
+# Question / Answer Section
 
 Q: I want to add my category. How can I do it?
 
@@ -181,15 +177,11 @@ AddNewHMenuModule( "Settings name here", "Name module here", function()
 
 end )
 
-==============================
-        Additionally
-==============================
+# Additionally
 
 I can’t write everything down here, so you can find out the rest either from me personally or from the comments in the code.
 
-==============================
-         My Support
-==============================
+# My Support
 
 If after reading this file you still have questions for me, you can write to me at the following contacts:
 
