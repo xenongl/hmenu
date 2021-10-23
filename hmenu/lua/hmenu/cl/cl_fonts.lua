@@ -1,11 +1,11 @@
-surface.CreateFont('HMenuStandartFont', {
+surface.CreateFont('hmenu.fonts.standartFont', {
 	font = 'Chalet',
 	extended = false,
 	size = 19,
 	weight = 200,
 })
 
-surface.CreateFont('HMenuBigFont', {
+surface.CreateFont('hmnenu.fonts.bigFont', {
 	font = 'GreatWishes',
 	extended = false,
 	size = 45,

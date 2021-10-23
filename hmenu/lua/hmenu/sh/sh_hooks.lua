@@ -1,19 +1,5 @@
-/*
-
-$$\   $$\                     $$\                 
-$$ |  $$ |                    $$ |                
-$$ |  $$ | $$$$$$\   $$$$$$\  $$ |  $$\  $$$$$$$\ 
-$$$$$$$$ |$$  __$$\ $$  __$$\ $$ | $$  |$$  _____|
-$$  __$$ |$$ /  $$ |$$ /  $$ |$$$$$$  / \$$$$$$\  
-$$ |  $$ |$$ |  $$ |$$ |  $$ |$$  _$$<   \____$$\ 
-$$ |  $$ |\$$$$$$  |\$$$$$$  |$$ | \$$\ $$$$$$$  |
-\__|  \__| \______/  \______/ \__|  \__|\_______/ 
-
-*/
-
 if CLIENT then
-
-	hook.Add( "PlayerButtonUp", "KeyBindHMenu", function( ply, buttonId )
+	hook.Add('PlayerButtonUp', 'hmenu.binds.openHMenu', function(ply, buttonId)
 
 		if not IsFirstTimePredicted() then return end
 		if ply ~= LocalPlayer() then return end
@@ -23,30 +9,28 @@ if CLIENT then
 
 		OpenHMenu()
 
-	end )
+	end)
 
-	timer.Simple( 15, function()
+	timer.Simple(15, function()
 
-		for k, v in pairs( ConfigHMenu.GPS.Positions ) do
+		for k, v in pairs(ConfigHMenu.GPS.Positions) do
+			concommand.Add(v.Command, function()
 
-			concommand.Add( v.Command, function()
-
-				hook.Add( "HUDPaint", "HMenuGPSHook", function()
+				hook.Add('HUDPaint', 'hmenu.gps', function()
 				
-					Position = ( v.Position + Vector(0, 0, 95) ):ToScreen() 
+					local pos = (v.Position + Vector(0, 0, 95)):ToScreen() 
 
-					DistanceOne = v.Position:Distance( LocalPlayer():GetPos() )
-					DistanceTwo = math.Round( DistanceOne ).." m"
+					local firstDistance = v.Position:Distance(LocalPlayer():GetPos())
+					local secondDistance = math.Round(firstDistance)..' m'
 
-					draw.SimpleTextOutlined( k, "HMenuStandartFont", Position.x, Position.y + 50, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 49, 49, 49 ) )
-					draw.SimpleTextOutlined( DistanceTwo, "HMenuStandartFont", Position.x, Position.y + 73, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 49, 49, 49 ) )
+					draw.SimpleTextOutlined(k, 'hmenu.fonts.standartFont', pos.x, pos.y + 50, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color(49, 49, 49))
+					draw.SimpleTextOutlined(secondDistance, 'hmenu.fonts.standartFont', pos.x, pos.y + 73, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color(49, 49, 49))
 
-				end )
+				end)
 
-			end )
-				
+			end)	
 		end
 
-	end )
+	end)
 
 end

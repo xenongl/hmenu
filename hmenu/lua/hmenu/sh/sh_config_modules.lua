@@ -1,23 +1,10 @@
-/*
-
-$$\      $$\                 $$\           $$\                     
-$$$\    $$$ |                $$ |          $$ |                    
-$$$$\  $$$$ | $$$$$$\   $$$$$$$ |$$\   $$\ $$ | $$$$$$\   $$$$$$$\ 
-$$\$$\$$ $$ |$$  __$$\ $$  __$$ |$$ |  $$ |$$ |$$  __$$\ $$  _____|
-$$ \$$$  $$ |$$ /  $$ |$$ /  $$ |$$ |  $$ |$$ |$$$$$$$$ |\$$$$$$\  
-$$ |\$  /$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |$$   ____| \____$$\ 
-$$ | \_/ $$ |\$$$$$$  |\$$$$$$$ |\$$$$$$  |$$ |\$$$$$$$\ $$$$$$$  |
-\__|     \__| \______/  \_______| \______/ \__| \_______|\_______/ 
-                                                                   
-*/
-
-function InitializeHMenuModules()
+function initializeHMenuModules()
 
 	function AddNewHMenuModule( settings_name, name, func_click )
 
 		if ConfigHMenu.Modules[settings_name].Enabled then
 
-			HMenuModuleButtonCategory = HMenuScrollButtons:Add( "DButton" )
+			HMenuModuleButtonCategory = HMenuScrollButtons:Add( 'DButton' )
 			HMenuModuleButtonCategory:SetText( name )
 			HMenuModuleButtonCategory:SetTextColor( ConfigHMenu.Modules[settings_name].ColorText )
 			HMenuModuleButtonCategory:SetFont( ConfigHMenu.Modules[settings_name].TextFont )
@@ -31,49 +18,49 @@ function InitializeHMenuModules()
 
 					HMenuFrame:MoveTo( ScrW() + HMenuFrame:GetWide() - 5, ScrH() / 2 - HMenuFrame:GetTall() / 2,  .2, 0, -1, function()
 						
-						surface.PlaySound( "hmenu/open.wav" )
+						surface.PlaySound( 'hmenu/open.wav' )
 
 						HMenuFrame:Close()
 
-						HMenuFrameCategory = vgui.Create( "DFrame" )
+						HMenuFrameCategory = vgui.Create( 'DFrame' )
 						HMenuFrameCategory:SetSize( ScrW() / 10, ScrH() / 3.25 )
 						HMenuFrameCategory:SetPos( ScrW() + HMenuFrameCategory:GetWide() - 5, ScrH() / 2 - HMenuFrameCategory:GetTall() / 2 )
 						HMenuFrameCategory:MakePopup()
 						HMenuFrameCategory:SetDraggable( false )
 						HMenuFrameCategory:ShowCloseButton( true )
-						HMenuFrameCategory:SetTitle( "" )
+						HMenuFrameCategory:SetTitle( '' )
 
 						HMenuFrameCategory.Paint = function( self, w, h )
 
-							draw.RoundedBox( 0, 0, 0, w, h, ConfigHMenu.Colors["ColorBackground"] )
+							draw.RoundedBox( 0, 0, 0, w, h, ConfigHMenu.Colors['ColorBackground'] )
 
 						end
 
 						HMenuFrameCategory:MoveTo( ScrW() - HMenuFrameCategory:GetWide() - 5, ScrH() / 2 - HMenuFrameCategory:GetTall() / 2,  .2, 0, -1 )
 
-						HMenuPanelCategory = vgui.Create( "DPanel", HMenuFrameCategory )
+						HMenuPanelCategory = vgui.Create( 'DPanel', HMenuFrameCategory )
 						HMenuPanelCategory:SetSize( HMenuFrameCategory:GetWide(), HMenuFrameCategory:GetTall() / 4 )
 						HMenuPanelCategory:SetPos( 0, 0 )
 
 						HMenuPanelCategory.Paint = function( self, w, h )
 
-							draw.RoundedBox( 0, 0, 0, w, h, ConfigHMenu.Colors["ColorHeader"] )
+							draw.RoundedBox( 0, 0, 0, w, h, ConfigHMenu.Colors['ColorHeader'] )
 
 						end
 
-						HMenuImageMenuCategory = vgui.Create( "DImage", HMenuFrameCategory )
+						HMenuImageMenuCategory = vgui.Create( 'DImage', HMenuFrameCategory )
 						HMenuImageMenuCategory:SetSize( HMenuFrameCategory:GetWide(), HMenuFrameCategory:GetTall() )
 						HMenuImageMenuCategory:SetPos( 0, 0 )
-						HMenuImageMenuCategory:SetImage( "hmenu/hmenu_black.png" )
+						HMenuImageMenuCategory:SetImage( 'hmenu/hmenu_black.png' )
 
-						HMenuTextMenuCategory = vgui.Create( "DLabel", HMenuPanelCategory )
+						HMenuTextMenuCategory = vgui.Create( 'DLabel', HMenuPanelCategory )
 						HMenuTextMenuCategory:SetTextColor( Color( 255, 255, 255 ) )
-						HMenuTextMenuCategory:SetFont( "HMenuBigFont" )
+						HMenuTextMenuCategory:SetFont( 'hmnenu.fonts.bigFont' )
 						HMenuTextMenuCategory:SetText( name )
 						HMenuTextMenuCategory:SizeToContents()
 						HMenuTextMenuCategory:SetPos( HMenuPanelCategory:GetWide() / 2 - HMenuTextMenuCategory:GetWide() / 2, HMenuPanelCategory:GetTall() / 2 - HMenuTextMenuCategory:GetTall() / 2 )
 
-						HMenuScrollButtonsCategory = vgui.Create( "DScrollPanel", HMenuFrameCategory )
+						HMenuScrollButtonsCategory = vgui.Create( 'DScrollPanel', HMenuFrameCategory )
 						HMenuScrollButtonsCategory:SetSize( HMenuFrameCategory:GetWide(), HMenuFrameCategory:GetTall() - 115 )
 						HMenuScrollButtonsCategory:SetPos( 0, HMenuFrameCategory:GetTall() - HMenuScrollButtonsCategory:GetTall() - 15 )
 
@@ -81,10 +68,10 @@ function InitializeHMenuModules()
 
 						timer.Simple( .105, function()
 
-							HMenuModuleButtonCategory = HMenuScrollButtonsCategory:Add( "DButton" )
-							HMenuModuleButtonCategory:SetText( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Close"] )
+							HMenuModuleButtonCategory = HMenuScrollButtonsCategory:Add( 'DButton' )
+							HMenuModuleButtonCategory:SetText( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Close'] )
 							HMenuModuleButtonCategory:SetTextColor( Color( 255, 76, 91 ) )
-							HMenuModuleButtonCategory:SetFont( "HMenuStandartFont" )
+							HMenuModuleButtonCategory:SetFont( 'hmenu.fonts.standartFont' )
 							HMenuModuleButtonCategory:Dock( TOP )
 							HMenuModuleButtonCategory:DockMargin( 15, 0, 0, 5 )
 							HMenuModuleButtonCategory:SetContentAlignment( 4 )
@@ -92,7 +79,7 @@ function InitializeHMenuModules()
 
 								HMenuFrameCategory:MoveTo( ScrW() + HMenuFrameCategory:GetWide() - 5, ScrH() / 2 - HMenuFrameCategory:GetTall() / 2,  .2, 0, -1, function()
 				
-									surface.PlaySound( "hmenu/open.wav" )
+									surface.PlaySound( 'hmenu/open.wav' )
 
 									HMenuFrameCategory:Close()
 
@@ -118,7 +105,7 @@ function InitializeHMenuModules()
 				
 					HMenuFrame:MoveTo( ScrW() + HMenuFrame:GetWide() - 5, ScrH() / 2 - HMenuFrame:GetTall() / 2,  .2, 0, -1, function()
 								
-						surface.PlaySound( "hmenu/open.wav" )
+						surface.PlaySound( 'hmenu/open.wav' )
 
 						HMenuFrame:Close()
 
@@ -142,7 +129,7 @@ function InitializeHMenuModules()
 
 	function AddNewHMenuModuleSubCategory( name, func_click, font, color_text, color_background )
 
-		HMenuModuleButtonSubCategory = HMenuScrollButtonsCategory:Add( "DButton" )
+		HMenuModuleButtonSubCategory = HMenuScrollButtonsCategory:Add( 'DButton' )
 		HMenuModuleButtonSubCategory:SetText( name )
 		HMenuModuleButtonSubCategory:SetTextColor( color_text )
 		HMenuModuleButtonSubCategory:SetFont( font )
@@ -154,49 +141,49 @@ function InitializeHMenuModules()
 
 			HMenuFrameCategory:MoveTo( ScrW() + HMenuFrameCategory:GetWide() - 5, ScrH() / 2 - HMenuFrameCategory:GetTall() / 2,  .2, 0, -1, function()
 				
-				surface.PlaySound( "hmenu/open.wav" )
+				surface.PlaySound( 'hmenu/open.wav' )
 
 				HMenuFrameCategory:Close()
 
-				HMenuFrameSubCategory = vgui.Create( "DFrame" )
+				HMenuFrameSubCategory = vgui.Create( 'DFrame' )
 				HMenuFrameSubCategory:SetSize( ScrW() / 10, ScrH() / 3.25 )
 				HMenuFrameSubCategory:SetPos( ScrW() + HMenuFrameSubCategory:GetWide() - 5, ScrH() / 2 - HMenuFrameSubCategory:GetTall() / 2 )
 				HMenuFrameSubCategory:MakePopup()
 				HMenuFrameSubCategory:SetDraggable( false )
 				HMenuFrameSubCategory:ShowCloseButton( true )
-				HMenuFrameSubCategory:SetTitle( "" )
+				HMenuFrameSubCategory:SetTitle( '' )
 
 				HMenuFrameSubCategory.Paint = function( self, w, h )
 
-					draw.RoundedBox( 0, 0, 0, w, h, ConfigHMenu.Colors["ColorBackground"] )
+					draw.RoundedBox( 0, 0, 0, w, h, ConfigHMenu.Colors['ColorBackground'] )
 
 				end
 
 				HMenuFrameSubCategory:MoveTo( ScrW() - HMenuFrameSubCategory:GetWide() - 5, ScrH() / 2 - HMenuFrameSubCategory:GetTall() / 2,  .2, 0, -1 )
 
-				HMenuPanelSubCategory = vgui.Create( "DPanel", HMenuFrameSubCategory )
+				HMenuPanelSubCategory = vgui.Create( 'DPanel', HMenuFrameSubCategory )
 				HMenuPanelSubCategory:SetSize( HMenuFrameSubCategory:GetWide(), HMenuFrameSubCategory:GetTall() / 4 )
 				HMenuPanelSubCategory:SetPos( 0, 0 )
 
 				HMenuPanelSubCategory.Paint = function( self, w, h )
 
-					draw.RoundedBox( 0, 0, 0, w, h, ConfigHMenu.Colors["ColorHeader"] )
+					draw.RoundedBox( 0, 0, 0, w, h, ConfigHMenu.Colors['ColorHeader'] )
 
 				end
 
-				HMenuImageMenuSubCategory = vgui.Create( "DImage", HMenuFrameSubCategory )
+				HMenuImageMenuSubCategory = vgui.Create( 'DImage', HMenuFrameSubCategory )
 				HMenuImageMenuSubCategory:SetSize( HMenuFrameSubCategory:GetWide(), HMenuFrameSubCategory:GetTall() )
 				HMenuImageMenuSubCategory:SetPos( 0, 0 )
-				HMenuImageMenuSubCategory:SetImage( "hmenu/hmenu_black.png" )
+				HMenuImageMenuSubCategory:SetImage( 'hmenu/hmenu_black.png' )
 
-				HMenuTextMenuSubCategory = vgui.Create( "DLabel", HMenuPanelSubCategory )
+				HMenuTextMenuSubCategory = vgui.Create( 'DLabel', HMenuPanelSubCategory )
 				HMenuTextMenuSubCategory:SetTextColor( Color( 255, 255, 255 ) )
-				HMenuTextMenuSubCategory:SetFont( "HMenuBigFont" )
+				HMenuTextMenuSubCategory:SetFont( 'hmnenu.fonts.bigFont' )
 				HMenuTextMenuSubCategory:SetText( name )
 				HMenuTextMenuSubCategory:SizeToContents()
 				HMenuTextMenuSubCategory:SetPos( HMenuPanelSubCategory:GetWide() / 2 - HMenuTextMenuSubCategory:GetWide() / 2, HMenuPanelSubCategory:GetTall() / 2 - HMenuTextMenuSubCategory:GetTall() / 2 )
 
-				HMenuScrollButtonsSubCategory = vgui.Create( "DScrollPanel", HMenuFrameSubCategory )
+				HMenuScrollButtonsSubCategory = vgui.Create( 'DScrollPanel', HMenuFrameSubCategory )
 				HMenuScrollButtonsSubCategory:SetSize( HMenuFrameSubCategory:GetWide(), HMenuFrameSubCategory:GetTall() - 115 )
 				HMenuScrollButtonsSubCategory:SetPos( 0, HMenuFrameSubCategory:GetTall() - HMenuScrollButtonsSubCategory:GetTall() - 15 )
 
@@ -204,10 +191,10 @@ function InitializeHMenuModules()
 
 				timer.Simple( .105, function()
 
-					HMenuModuleButtonSubCategory = HMenuScrollButtonsSubCategory:Add( "DButton" )
-					HMenuModuleButtonSubCategory:SetText( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Close"] )
+					HMenuModuleButtonSubCategory = HMenuScrollButtonsSubCategory:Add( 'DButton' )
+					HMenuModuleButtonSubCategory:SetText( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Close'] )
 					HMenuModuleButtonSubCategory:SetTextColor( Color( 255, 76, 91 ) )
-					HMenuModuleButtonSubCategory:SetFont( "HMenuStandartFont" )
+					HMenuModuleButtonSubCategory:SetFont( 'hmenu.fonts.standartFont' )
 					HMenuModuleButtonSubCategory:Dock( TOP )
 					HMenuModuleButtonSubCategory:DockMargin( 15, 0, 0, 5 )
 					HMenuModuleButtonSubCategory:SetContentAlignment( 4 )
@@ -215,7 +202,7 @@ function InitializeHMenuModules()
 
 						HMenuFrameSubCategory:MoveTo( ScrW() + HMenuFrameSubCategory:GetWide() - 5, ScrH() / 2 - HMenuFrameSubCategory:GetTall() / 2,  .2, 0, -1, function()
 		
-							surface.PlaySound( "hmenu/open.wav" )
+							surface.PlaySound( 'hmenu/open.wav' )
 
 							HMenuFrameSubCategory:Close()
 
@@ -247,7 +234,7 @@ function InitializeHMenuModules()
 
 		if IsValid( HMenuScrollButtonsCategory ) then
 
-			HMenuModuleButtonCategory = HMenuScrollButtonsCategory:Add( "DButton" )
+			HMenuModuleButtonCategory = HMenuScrollButtonsCategory:Add( 'DButton' )
 			HMenuModuleButtonCategory:SetText( name )
 			HMenuModuleButtonCategory:SetTextColor( color_text )
 			HMenuModuleButtonCategory:SetFont( font )
@@ -258,7 +245,7 @@ function InitializeHMenuModules()
 
 				HMenuFrameCategory:MoveTo( ScrW() + HMenuFrameCategory:GetWide() - 5, ScrH() / 2 - HMenuFrameCategory:GetTall() / 2,  .2, 0, -1, function()
 							
-					surface.PlaySound( "hmenu/open.wav" )
+					surface.PlaySound( 'hmenu/open.wav' )
 
 					HMenuFrameCategory:Close()
 
@@ -282,7 +269,7 @@ function InitializeHMenuModules()
 
 		elseif IsValid( HMenuScrollButtonsSubCategory ) then
 
-			HMenuModuleButtonSubCategory = HMenuScrollButtonsSubCategory:Add( "DButton" )
+			HMenuModuleButtonSubCategory = HMenuScrollButtonsSubCategory:Add( 'DButton' )
 			HMenuModuleButtonSubCategory:SetText( name )
 			HMenuModuleButtonSubCategory:SetTextColor( color_text )
 			HMenuModuleButtonSubCategory:SetFont( font )
@@ -293,7 +280,7 @@ function InitializeHMenuModules()
 			
 			HMenuFrameSubCategory:MoveTo( ScrW() + HMenuFrameSubCategory:GetWide() - 5, ScrH() / 2 - HMenuFrameSubCategory:GetTall() / 2,  .2, 0, -1, function()
 						
-				surface.PlaySound( "hmenu/open.wav" )
+				surface.PlaySound( 'hmenu/open.wav' )
 
 				HMenuFrameSubCategory:Close()
 
@@ -358,9 +345,9 @@ $$\   $$ |  $$ |$$\ $$  __$$ |$$ |  $$ |$$ |  $$ |$$  __$$ |$$ |       $$ |$$\  
                                                                                                                                                                                                                                                                                                
 */
 
-	AddNewHMenuModule( "F4 Menu", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["F4 Menu"], function()
+	AddNewHMenuModule( 'F4 Menu', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['F4 Menu'], function()
 
-		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Contacts"], function()
+		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Contacts'], function()
 		
 			for k, v in pairs( ConfigHMenu.F4Menu.Sites ) do
 
@@ -370,29 +357,29 @@ $$\   $$ |  $$ |$$\ $$  __$$ |$$ |  $$ |$$ |  $$ |$$  __$$ |$$ |       $$ |$$\  
 							
 						gui.OpenURL( v.SiteUrl )
 
-					end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+					end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 				end
 
 			end
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Jobs"], function()
+		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Jobs'], function()
 
 			for k, v in pairs( RPExtraTeams ) do
 			
 				AddNewHMenuModuleButton( v.name, v.description, function()
 						
-					RunConsoleCommand( "say", "/" .. v.command )
+					RunConsoleCommand( 'say', '/' .. v.command )
 
-				end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+				end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 			end
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Entities"], function()
+		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Entities'], function()
 
 			for k, v in pairs( DarkRPEntities ) do
 
@@ -418,19 +405,19 @@ $$\   $$ |  $$ |$$\ $$  __$$ |$$ |  $$ |$$ |  $$ |$$  __$$ |$$ |       $$ |$$\  
 
 				if HMenuDisplayEntity then
 
-					AddNewHMenuModuleButton( v.name .. " " .. v.price .. "$", nil, function()
+					AddNewHMenuModuleButton( v.name .. ' ' .. v.price .. '$', nil, function()
 
 						RunConsoleCommand('darkrp', v.cmd )
 
-					end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+					end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 				end
 
 			end
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Ammo"], function()
+		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Ammo'], function()
 
 			for k, v in pairs( GAMEMODE.AmmoTypes ) do
 			
@@ -456,19 +443,19 @@ $$\   $$ |  $$ |$$\ $$  __$$ |$$ |  $$ |$$ |  $$ |$$  __$$ |$$ |       $$ |$$\  
 
 				if HMenuDisplayAmmo then
 
-					AddNewHMenuModuleButton( v.name .. " " .. v.price .. "$", nil, function()
+					AddNewHMenuModuleButton( v.name .. ' ' .. v.price .. '$', nil, function()
 							
-						RunConsoleCommand( "darkrp", "buyammo", v.ammoType )
+						RunConsoleCommand( 'darkrp', 'buyammo', v.ammoType )
 
-					end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+					end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 				end
 
 			end
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Weapons"], function()
+		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Weapons'], function()
 
 			for k, v in pairs( CustomShipments ) do
 			
@@ -494,19 +481,19 @@ $$\   $$ |  $$ |$$\ $$  __$$ |$$ |  $$ |$$ |  $$ |$$  __$$ |$$ |       $$ |$$\  
 
 				if HMenuDisplayWeapons then
 
-					AddNewHMenuModuleButton( v.name .. " " .. v.price .. "$", nil, function()
+					AddNewHMenuModuleButton( v.name .. ' ' .. v.price .. '$', nil, function()
 							
-						RunConsoleCommand( "darkrp", "buy", v.name )
+						RunConsoleCommand( 'darkrp', 'buy', v.name )
 
-					end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+					end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 				end
 
 			end
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Shipments"], function()
+		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Shipments'], function()
 
 			for k, v in pairs( CustomShipments ) do
 			
@@ -532,21 +519,21 @@ $$\   $$ |  $$ |$$\ $$  __$$ |$$ |  $$ |$$ |  $$ |$$  __$$ |$$ |       $$ |$$\  
 
 				if HMenuDisplayShipments then
 
-					AddNewHMenuModuleButton( v.name .. " " .. v.price .. "$", nil, function()
+					AddNewHMenuModuleButton( v.name .. ' ' .. v.price .. '$', nil, function()
 							
-						RunConsoleCommand( "darkrp", "buyshipment", v.name )
+						RunConsoleCommand( 'darkrp', 'buyshipment', v.name )
 
-					end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+					end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 				end
 
 			end
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		if ConfigHMenu.ModulesSettings["EnableFood"] then
+		if ConfigHMenu.ModulesSettings['EnableFood'] then
 
-			AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Food"], function()
+			AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Food'], function()
 
 				for k, v in pairs( FoodItems ) do
 				
@@ -572,85 +559,85 @@ $$\   $$ |  $$ |$$\ $$  __$$ |$$ |  $$ |$$ |  $$ |$$  __$$ |$$ |       $$ |$$\  
 
 					if HMenuDisplayFood then
 
-						AddNewHMenuModuleButton( v.name .. " " .. v.price .. "$", nil, function()
+						AddNewHMenuModuleButton( v.name .. ' ' .. v.price .. '$', nil, function()
 								
-							RunConsoleCommand( "darkrp", "buyfood", v.name )
+							RunConsoleCommand( 'darkrp', 'buyfood', v.name )
 
-						end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+						end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 					end
 
 				end
 
-			end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+			end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 		end
 
 	end )
 
-	AddNewHMenuModule( "Scoreboard", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Scoreboard"], function()
+	AddNewHMenuModule( 'Scoreboard', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Scoreboard'], function()
 
 		for k, v in pairs( player.GetAll() ) do
 		
-			AddNewHMenuModuleButton( v:Name(), ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Job"] .. ": " .. v:getDarkRPVar( "job" ) .. " | " .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Rank"] .. ": " .. v:GetUserGroup() .. " | " .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]["CopySteamID"], function()
+			AddNewHMenuModuleButton( v:Name(), ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Job'] .. ': ' .. v:getDarkRPVar( 'job' ) .. ' | ' .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Rank'] .. ': ' .. v:GetUserGroup() .. ' | ' .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]['CopySteamID'], function()
 					
 				SetClipboardText( v:SteamID() )
-				chat.AddText( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["SuccessfullyCopied"] .. " " .. v:Name() .. " ( " .. v:SteamID() .. " )" )
+				chat.AddText( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['SuccessfullyCopied'] .. ' ' .. v:Name() .. ' ( ' .. v:SteamID() .. ' )' )
 
-			end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+			end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 		end
 
 	end )
 
-	AddNewHMenuModule( "Character", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Character"], function()
+	AddNewHMenuModule( 'Character', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Character'], function()
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["PlayerInfo"], ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Job"] .. ": " .. LocalPlayer():getDarkRPVar( "job" ) .. " | " .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Rank"] .. ": " .. LocalPlayer():GetUserGroup() .. " | " .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Money"] .. ": " .. LocalPlayer():getDarkRPVar( "money" ) .. "$ | " .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Health"] .. ": " .. LocalPlayer():Health() .. " | " .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Armor"] .. ": " .. LocalPlayer():Armor() .. " | " .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]["CopySteamID"], function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['PlayerInfo'], ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Job'] .. ': ' .. LocalPlayer():getDarkRPVar( 'job' ) .. ' | ' .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Rank'] .. ': ' .. LocalPlayer():GetUserGroup() .. ' | ' .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Money'] .. ': ' .. LocalPlayer():getDarkRPVar( 'money' ) .. '$ | ' .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Health'] .. ': ' .. LocalPlayer():Health() .. ' | ' .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Armor'] .. ': ' .. LocalPlayer():Armor() .. ' | ' .. ConfigHMenu.Language[ConfigHMenu.Language.Settings]['CopySteamID'], function()
 				
 			SetClipboardText( LocalPlayer():SteamID() )
-			chat.AddText( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["SuccessfullyCopied"] .. " " .. LocalPlayer():Name() .. " ( " .. LocalPlayer():SteamID() .. " )" )
+			chat.AddText( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['SuccessfullyCopied'] .. ' ' .. LocalPlayer():Name() .. ' ( ' .. LocalPlayer():SteamID() .. ' )' )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Random Number"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Random Number'], nil, function()
 				
-			RunConsoleCommand( "darkrp", "roll", "100" )
+			RunConsoleCommand( 'darkrp', 'roll', '100' )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Advert"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Advert'], nil, function()
 				
-			Derma_StringRequest( "", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["What do we advertise"], nil, function( s )
+			Derma_StringRequest( '', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['What do we advertise'], nil, function( s )
 
-				RunConsoleCommand( "say", "/advert " .. s )
+				RunConsoleCommand( 'say', '/advert ' .. s )
 
 			end )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Give Money"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Give Money'], nil, function()
 				
-			Derma_StringRequest( "", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["How much money"], nil, function( s )
+			Derma_StringRequest( '', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['How much money'], nil, function( s )
 
-				RunConsoleCommand( "darkrp", "give", s )
+				RunConsoleCommand( 'darkrp', 'give', s )
 
 			end )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Drop Money"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Drop Money'], nil, function()
 				
-			Derma_StringRequest( "", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["How much money"], nil, function( s )
+			Derma_StringRequest( '', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['How much money'], nil, function( s )
 
-				RunConsoleCommand( "darkrp", "dropmoney", s )
+				RunConsoleCommand( 'darkrp', 'dropmoney', s )
 
 			end )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 	end )
 
-	AddNewHMenuModule( "GPS", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["GPS"], function()
+	AddNewHMenuModule( 'GPS', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['GPS'], function()
 
 		for k, v in pairs( ConfigHMenu.GPS.Category ) do
 			
@@ -668,29 +655,29 @@ $$\   $$ |  $$ |$$\ $$  __$$ |$$ |  $$ |$$ |  $$ |$$  __$$ |$$ |       $$ |$$\  
 									
 								RunConsoleCommand( v.Command )
 
-							end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+							end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 						end
 
 					end
 
-				end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+				end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 			end
 
 		end
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Clear GPS"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Clear GPS'], nil, function()
 
-			RunConsoleCommand( "hmenu_cleargps" )
+			RunConsoleCommand( 'hmenu_cleargps' )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 	end )
 
-	AddNewHMenuModule( "Settings", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Settings"], function()
+	AddNewHMenuModule( 'Settings', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Settings'], function()
 
-		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Music"], function()
+		AddNewHMenuModuleSubCategory( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Music'], function()
 
 			for k, v in pairs( ConfigHMenu.Music ) do
 
@@ -698,82 +685,82 @@ $$\   $$ |  $$ |$$\ $$  __$$ |$$ |  $$ |$$ |  $$ |$$  __$$ |$$ |       $$ |$$\  
 
 					AddNewHMenuModuleButton( k, nil, function()
 
-						sound.PlayURL( v.MusicUrl, "", function() end )
+						sound.PlayURL( v.MusicUrl, '', function() end )
 
-					end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+					end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
 				end
 
 			end
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Clear Sounds"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Clear Sounds'], nil, function()
 
-			RunConsoleCommand( "stopsound" )
+			RunConsoleCommand( 'stopsound' )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["OnShadows"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['OnShadows'], nil, function()
 
-			RunConsoleCommand( "r_shadows", "1" )
+			RunConsoleCommand( 'r_shadows', '1' )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["OffShadows"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['OffShadows'], nil, function()
 
-			RunConsoleCommand( "r_shadows", "0" )
+			RunConsoleCommand( 'r_shadows', '0' )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["OnEyes"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['OnEyes'], nil, function()
 
-			RunConsoleCommand( "r_eyes", "1" )
+			RunConsoleCommand( 'r_eyes', '1' )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["OffEyes"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['OffEyes'], nil, function()
 
-			RunConsoleCommand( "r_eyes", "0" )
+			RunConsoleCommand( 'r_eyes', '0' )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["OnM9KGasEffect"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['OnM9KGasEffect'], nil, function()
 
-			RunConsoleCommand( "M9K_GasEffect", "1" )
+			RunConsoleCommand( 'M9K_GasEffect', '1' )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["OffM9KGasEffect"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['OffM9KGasEffect'], nil, function()
 
-			RunConsoleCommand( "M9K_GasEffect", "0" )
+			RunConsoleCommand( 'M9K_GasEffect', '0' )
 
-		end, "HMenuStandartFont", Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 255, 255 ), Color( 0, 0, 0, 0 ) )
 
-		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Disconnect"], nil, function()
+		AddNewHMenuModuleButton( ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Disconnect'], nil, function()
 
-			RunConsoleCommand( "disconnect" )
+			RunConsoleCommand( 'disconnect' )
 
-		end, "HMenuStandartFont", Color( 255, 76, 91 ), Color( 0, 0, 0, 0 ) )
+		end, 'hmenu.fonts.standartFont', Color( 255, 76, 91 ), Color( 0, 0, 0, 0 ) )
 
 	end )
 
-	AddNewHMenuModule( "Ask a Question", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Ask a Question"], function()
+	AddNewHMenuModule( 'Ask a Question', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Ask a Question'], function()
 
-		Derma_StringRequest( "", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Write your question"], nil, function( s )
+		Derma_StringRequest( '', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Write your question'], nil, function( s )
 
-			RunConsoleCommand( "say", ConfigHMenu.ModulesSettings["CommandForQuestion"] .. " " .. s )
+			RunConsoleCommand( 'say', ConfigHMenu.ModulesSettings['CommandForQuestion'] .. ' ' .. s )
 
 		end )
 
 	end )
 
-	AddNewHMenuModule( "Report", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Report"], function()
+	AddNewHMenuModule( 'Report', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Report'], function()
 	
-		RunConsoleCommand( "say", ConfigHMenu.ModulesSettings["CommandForReport"] )
+		RunConsoleCommand( 'say', ConfigHMenu.ModulesSettings['CommandForReport'] )
 
 	end )
 
-	AddNewHMenuModule( "Close", ConfigHMenu.Language[ConfigHMenu.Language.Settings]["Close"], function() end )
+	AddNewHMenuModule( 'Close', ConfigHMenu.Language[ConfigHMenu.Language.Settings]['Close'], function() end )
 
 end
