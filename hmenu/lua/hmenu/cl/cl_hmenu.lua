@@ -6,7 +6,7 @@ function openHMenu()
 
 	menuFrame = vgui.Create('DFrame')
 	menuFrame:SetSize(x / 10, y / 3.25)
-	menuFrame:SetPos(x + hmenuWide - 5, y / 2 - hmenuTall / 2)
+	menuFrame:SetPos(x + menuFrame:GetWide() - 5, y / 2 - menuFrame:GetTall() / 2)
 	menuFrame:MakePopup()
 	menuFrame:SetDraggable(false)
 	menuFrame:ShowCloseButton(false)
