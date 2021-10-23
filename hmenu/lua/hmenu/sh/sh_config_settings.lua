@@ -119,7 +119,7 @@ configHMenu.GPS.positions = {
     ['Test Position'] = {
         command = 'testposition',
         category = 'Main places',
-        position = Vector( -1447.090210, -426.852753, -83.985886 ),
+        position = Vector(-1447.090210, -426.852753, -83.985886),
         enabled = true
     },
 }
