@@ -582,3 +582,5 @@ function initializeHMenuModules()
 	addNewHMenuModule('Close', configHMenu.language[configHMenu.language.settings]['Close'], function() end)
 
 end
+
+print('hmenu modules initialized')

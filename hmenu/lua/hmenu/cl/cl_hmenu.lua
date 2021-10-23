@@ -51,3 +51,5 @@ end
 concommand.Add('hmenu_cleargps', function()
 	hook.Remove('HUDPaint', 'hmenu.gps')
 end)
+
+print('hmenu main initialized')

@@ -11,3 +11,5 @@ surface.CreateFont('hmenu.fonts.bigFont', {
 	size = 45,
 	weight = 200,
 })
+
+print('hmenu fonts initialized')

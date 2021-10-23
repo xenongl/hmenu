@@ -7,7 +7,7 @@ if CLIENT then
 		if gui.IsGameUIVisible() then return end
 		if ply:IsTyping() then return end
 
-		OpenHMenu()
+		openHMenu()
 
 	end)
 
@@ -33,4 +33,5 @@ if CLIENT then
 
 	end)
 
+	print('hmenu hooks initialized')
 end

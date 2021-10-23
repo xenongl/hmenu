@@ -51,3 +51,5 @@ if CLIENT then
 		include(folderName .. '/' .. File)
 	end
 end
+
+print('hmenu initialized')

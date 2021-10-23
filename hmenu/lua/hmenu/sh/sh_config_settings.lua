@@ -276,3 +276,5 @@ configHMenu.language['French'] = {
     ['Write your question'] = 'Écrivez votre question',
     ['Disconnect'] = 'Déconnecter'
 }
+
+print('hmenu config initialized')
