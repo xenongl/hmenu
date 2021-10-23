@@ -1,5 +1,8 @@
 function initializeHMenuModules()
 
+	local x, y = ScrW(), ScrH()
+	local varLocalPlayer = LocalPlayer()
+
 	function addNewHMenuModule(settingsName, name, funcOnClick)
 
 		if configHMenu.modules[settingsName].enabled then
@@ -14,15 +17,15 @@ function initializeHMenuModules()
 			if configHMenu.modules[settingsName].isCategory then
 				menuButtonCategory.DoClick = function()
 
-					menuFrame:MoveTo(ScrW() + menuFrame:GetWide() - 5, ScrH() / 2 - menuFrame:GetTall() / 2,  .2, 0, -1, function()
+					menuFrame:MoveTo(x + menuFrame:GetWide() - 5, y / 2 - menuFrame:GetTall() / 2,  .2, 0, -1, function()
 						
 						surface.PlaySound('hmenu/open.wav')
 
 						menuFrame:Close()
 
 						menuFrameCategory = vgui.Create('DFrame')
-						menuFrameCategory:SetSize(ScrW() / 10, ScrH() / 3.25)
-						menuFrameCategory:SetPos(ScrW() + menuFrameCategory:GetWide() - 5, ScrH() / 2 - menuFrameCategory:GetTall() / 2)
+						menuFrameCategory:SetSize(x / 10, y / 3.25)
+						menuFrameCategory:SetPos(x + menuFrameCategory:GetWide() - 5, y / 2 - menuFrameCategory:GetTall() / 2)
 						menuFrameCategory:MakePopup()
 						menuFrameCategory:SetDraggable(false)
 						menuFrameCategory:ShowCloseButton(true)
@@ -32,7 +35,7 @@ function initializeHMenuModules()
 							draw.RoundedBox(0, 0, 0, w, h, configHMenu.colors['colorBackground'])
 						end
 
-						menuFrameCategory:MoveTo(ScrW() - menuFrameCategory:GetWide() - 5, ScrH() / 2 - menuFrameCategory:GetTall() / 2,  .2, 0, -1)
+						menuFrameCategory:MoveTo(x - menuFrameCategory:GetWide() - 5, y / 2 - menuFrameCategory:GetTall() / 2,  .2, 0, -1)
 
 						menuPanelCategory = vgui.Create('DPanel', menuFrameCategory)
 						menuPanelCategory:SetSize(menuFrameCategory:GetWide(), menuFrameCategory:GetTall() / 4)
@@ -72,7 +75,7 @@ function initializeHMenuModules()
 							
 							menuButtonCategory.DoClick = function()
 
-								menuFrameCategory:MoveTo(ScrW() + menuFrameCategory:GetWide() - 5, ScrH() / 2 - menuFrameCategory:GetTall() / 2,  .2, 0, -1, function()
+								menuFrameCategory:MoveTo(x + menuFrameCategory:GetWide() - 5, y / 2 - menuFrameCategory:GetTall() / 2,  .2, 0, -1, function()
 				
 									surface.PlaySound('hmenu/open.wav')
 
@@ -94,7 +97,7 @@ function initializeHMenuModules()
 			else
 				menuButtonCategory.DoClick = function()
 				
-					menuFrame:MoveTo(ScrW() + menuFrame:GetWide() - 5, ScrH() / 2 - menuFrame:GetTall() / 2,  .2, 0, -1, function()
+					menuFrame:MoveTo(x + menuFrame:GetWide() - 5, y / 2 - menuFrame:GetTall() / 2,  .2, 0, -1, function()
 								
 						surface.PlaySound('hmenu/open.wav')
 
@@ -126,15 +129,15 @@ function initializeHMenuModules()
 
 		menuButtonSubCategory.DoClick = function()
 
-			menuFrameCategory:MoveTo(ScrW() + menuFrameCategory:GetWide() - 5, ScrH() / 2 - menuFrameCategory:GetTall() / 2, .2, 0, -1, function()
+			menuFrameCategory:MoveTo(x + menuFrameCategory:GetWide() - 5, y / 2 - menuFrameCategory:GetTall() / 2, .2, 0, -1, function()
 				
 				surface.PlaySound('hmenu/open.wav')
 
 				menuFrameCategory:Close()
 
 				menuFrameSubCategory = vgui.Create('DFrame')
-				menuFrameSubCategory:SetSize(ScrW() / 10, ScrH() / 3.25)
-				menuFrameSubCategory:SetPos(ScrW() + menuFrameSubCategory:GetWide() - 5, ScrH() / 2 - menuFrameSubCategory:GetTall() / 2)
+				menuFrameSubCategory:SetSize(x / 10, y / 3.25)
+				menuFrameSubCategory:SetPos(x + menuFrameSubCategory:GetWide() - 5, y / 2 - menuFrameSubCategory:GetTall() / 2)
 				menuFrameSubCategory:MakePopup()
 				menuFrameSubCategory:SetDraggable(false)
 				menuFrameSubCategory:ShowCloseButton(true)
@@ -144,7 +147,7 @@ function initializeHMenuModules()
 					draw.RoundedBox(0, 0, 0, w, h, configHMenu.colors['colorBackground'])
 				end
 
-				menuFrameSubCategory:MoveTo(ScrW() - menuFrameSubCategory:GetWide() - 5, ScrH() / 2 - menuFrameSubCategory:GetTall() / 2,  .2, 0, -1)
+				menuFrameSubCategory:MoveTo(x - menuFrameSubCategory:GetWide() - 5, y / 2 - menuFrameSubCategory:GetTall() / 2,  .2, 0, -1)
 
 				menuPanelSubCategory = vgui.Create('DPanel', menuFrameSubCategory)
 				menuPanelSubCategory:SetSize(menuFrameSubCategory:GetWide(), menuFrameSubCategory:GetTall() / 4)
@@ -184,7 +187,7 @@ function initializeHMenuModules()
 
 					menuButtonSubCategory.DoClick = function()
 
-						menuFrameSubCategory:MoveTo(ScrW() + menuFrameSubCategory:GetWide() - 5, ScrH() / 2 - menuFrameSubCategory:GetTall() / 2,  .2, 0, -1, function()
+						menuFrameSubCategory:MoveTo(x + menuFrameSubCategory:GetWide() - 5, y / 2 - menuFrameSubCategory:GetTall() / 2,  .2, 0, -1, function()
 		
 							surface.PlaySound('hmenu/open.wav')
 
@@ -223,7 +226,7 @@ function initializeHMenuModules()
 
 			menuButtonCategory.DoClick = function()
 
-				menuFrameCategory:MoveTo(ScrW() + menuFrameCategory:GetWide() - 5, ScrH() / 2 - menuFrameCategory:GetTall() / 2,  .2, 0, -1, function()
+				menuFrameCategory:MoveTo(x + menuFrameCategory:GetWide() - 5, y / 2 - menuFrameCategory:GetTall() / 2,  .2, 0, -1, function()
 							
 					surface.PlaySound('hmenu/open.wav')
 
@@ -258,7 +261,7 @@ function initializeHMenuModules()
 
 			menuButtonSubCategory.DoClick = function()
 			
-				menuFrameSubCategory:MoveTo(ScrW() + menuFrameSubCategory:GetWide() - 5, ScrH() / 2 - menuFrameSubCategory:GetTall() / 2,  .2, 0, -1, function()
+				menuFrameSubCategory:MoveTo(x + menuFrameSubCategory:GetWide() - 5, y / 2 - menuFrameSubCategory:GetTall() / 2,  .2, 0, -1, function()
 							
 					surface.PlaySound('hmenu/open.wav')
 
@@ -312,15 +315,15 @@ function initializeHMenuModules()
 			for k, v in pairs(DarkRPEntities) do
 				menuDisplayEntity = true
 
-				if istable(v.allowed) and not table.HasValue(v.allowed, LocalPlayer():Team())then
+				if istable(v.allowed) and not table.HasValue(v.allowed, varLocalPlayer:Team())then
 					menuDisplayEntity = false
 				end
 
-				if v.customCheck and not v.customCheck(LocalPlayer())then
+				if v.customCheck and not v.customCheck(varLocalPlayer)then
 					menuDisplayEntity = false
 				end
 
-				if v.canSee and not v.canSee(LocalPlayer())then
+				if v.canSee and not v.canSee(varLocalPlayer)then
 					menuDisplayEntity = false
 				end
 
@@ -338,15 +341,15 @@ function initializeHMenuModules()
 			for k, v in pairs(GAMEMODE.AmmoTypes) do
 				menuDisplayAmmo = true
 
-				if istable(v.allowed) and not table.HasValue(v.allowed, LocalPlayer():Team())then
+				if istable(v.allowed) and not table.HasValue(v.allowed, varLocalPlayer:Team())then
 					menuDisplayAmmo = false
 				end
 
-				if v.customCheck and not v.customCheck(LocalPlayer())then
+				if v.customCheck and not v.customCheck(varLocalPlayer)then
 					menuDisplayAmmo = false
 				end
 
-				if v.canSee and not v.canSee(LocalPlayer())then
+				if v.canSee and not v.canSee(varLocalPlayer)then
 					menuDisplayAmmo = false
 				end
 
@@ -364,15 +367,15 @@ function initializeHMenuModules()
 			for k, v in pairs(CustomShipments) do
 				menuDisplayWeapons = true
 
-				if istable(v.allowed) and not table.HasValue(v.allowed, LocalPlayer():Team())then
+				if istable(v.allowed) and not table.HasValue(v.allowed, varLocalPlayer:Team())then
 					menuDisplayWeapons = false
 				end
 
-				if v.customCheck and not v.customCheck(LocalPlayer())then
+				if v.customCheck and not v.customCheck(varLocalPlayer)then
 					menuDisplayWeapons = false
 				end
 
-				if v.canSee and not v.canSee(LocalPlayer())then
+				if v.canSee and not v.canSee(varLocalPlayer)then
 					menuDisplayWeapons = false
 				end
 
@@ -390,15 +393,15 @@ function initializeHMenuModules()
 			for k, v in pairs(CustomShipments) do
 				menuDisplayShipments = true
 
-				if istable(v.allowed) and not table.HasValue(v.allowed, LocalPlayer():Team())then
+				if istable(v.allowed) and not table.HasValue(v.allowed, varLocalPlayer:Team())then
 					menuDisplayShipments = false
 				end
 
-				if v.customCheck and not v.customCheck(LocalPlayer())then
+				if v.customCheck and not v.customCheck(varLocalPlayer)then
 					menuDisplayShipments = false
 				end
 
-				if v.canSee and not v.canSee(LocalPlayer())then
+				if v.canSee and not v.canSee(varLocalPlayer)then
 					menuDisplayShipments = false
 				end
 
@@ -417,15 +420,15 @@ function initializeHMenuModules()
 				for k, v in pairs(FoodItems) do
 					menuDisplayFood = true
 
-					if istable(v.allowed) and not table.HasValue(v.allowed, LocalPlayer():Team())then
+					if istable(v.allowed) and not table.HasValue(v.allowed, varLocalPlayer:Team())then
 						menuDisplayFood = false
 					end
 
-					if v.customCheck and not v.customCheck(LocalPlayer())then
+					if v.customCheck and not v.customCheck(varLocalPlayer)then
 						menuDisplayFood = false
 					end
 
-					if v.canSee and not v.canSee(LocalPlayer())then
+					if v.canSee and not v.canSee(varLocalPlayer)then
 						menuDisplayFood = false
 					end
 
@@ -456,10 +459,10 @@ function initializeHMenuModules()
 
 	addNewHMenuModule('Character', configHMenu.language[configHMenu.language.settings]['Character'], function()
 
-		addNewHMenuModuleButton(configHMenu.language[configHMenu.language.settings]['PlayerInfo'], configHMenu.language[configHMenu.language.settings]['Job'] .. ': ' .. LocalPlayer():getDarkRPVar('job').. ' | ' .. configHMenu.language[configHMenu.language.settings]['Rank'] .. ': ' .. LocalPlayer():GetUserGroup().. ' | ' .. configHMenu.language[configHMenu.language.settings]['Money'] .. ': ' .. LocalPlayer():getDarkRPVar('money').. '$ | ' .. configHMenu.language[configHMenu.language.settings]['Health'] .. ': ' .. LocalPlayer():Health().. ' | ' .. configHMenu.language[configHMenu.language.settings]['Armor'] .. ': ' .. LocalPlayer():Armor().. ' | ' .. configHMenu.language[configHMenu.language.settings]['CopySteamID'], function()
+		addNewHMenuModuleButton(configHMenu.language[configHMenu.language.settings]['PlayerInfo'], configHMenu.language[configHMenu.language.settings]['Job'] .. ': ' .. varLocalPlayer:getDarkRPVar('job').. ' | ' .. configHMenu.language[configHMenu.language.settings]['Rank'] .. ': ' .. varLocalPlayer:GetUserGroup().. ' | ' .. configHMenu.language[configHMenu.language.settings]['Money'] .. ': ' .. varLocalPlayer:getDarkRPVar('money').. '$ | ' .. configHMenu.language[configHMenu.language.settings]['Health'] .. ': ' .. varLocalPlayer:Health().. ' | ' .. configHMenu.language[configHMenu.language.settings]['Armor'] .. ': ' .. varLocalPlayer:Armor().. ' | ' .. configHMenu.language[configHMenu.language.settings]['CopySteamID'], function()
 				
-			SetClipboardText(LocalPlayer():SteamID())
-			chat.AddText(configHMenu.language[configHMenu.language.settings]['SuccessfullyCopied'] .. ' ' .. LocalPlayer():Name().. ' (' .. LocalPlayer():SteamID().. ')')
+			SetClipboardText(varLocalPlayer:SteamID())
+			chat.AddText(configHMenu.language[configHMenu.language.settings]['SuccessfullyCopied'] .. ' ' .. varLocalPlayer:Name().. ' (' .. varLocalPlayer:SteamID().. ')')
 
 		end, 'hmenu.fonts.standartFont', Color(255, 255, 255), Color(0, 0, 0, 0))
 
