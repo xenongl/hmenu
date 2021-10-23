@@ -185,7 +185,7 @@ I can’t write everything down here, so you can find out the rest either from m
 
 If after reading this file you still have questions for me, you can write to me at the following contacts:
 
-• Discord - Hank J. Wimbleton#7177
-• Steam - https://steamcommunity.com/id/hankjwimbletons/
+• Discord - Xenon#7177
+• Steam - https://steamcommunity.com/id/xenongaylord/
 
 Good Luck!
