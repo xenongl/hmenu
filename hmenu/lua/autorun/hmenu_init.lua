@@ -19,7 +19,7 @@ if SERVER then
 		include(folderName .. '/' .. File)
 	end
 
-	local Folder = 'hmenu/cl'
+	local folderName = 'hmenu/cl'
 
 	for _, File in SortedPairs(file.Find(folderName .. '/cl_*.lua', 'LUA'), true) do
 		AddCSLuaFile(folderName .. '/' .. File)
