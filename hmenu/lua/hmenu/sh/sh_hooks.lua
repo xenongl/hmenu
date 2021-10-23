@@ -3,7 +3,7 @@ if CLIENT then
 
 		if not IsFirstTimePredicted() then return end
 		if ply ~= LocalPlayer() then return end
-		if buttonId ~= ConfigHMenu.ButtonOpenMenu then return end
+		if buttonId ~= configHMenu.buttonOpenMenu then return end
 		if gui.IsGameUIVisible() then return end
 		if ply:IsTyping() then return end
 
@@ -13,14 +13,14 @@ if CLIENT then
 
 	timer.Simple(15, function()
 
-		for k, v in pairs(ConfigHMenu.GPS.Positions) do
-			concommand.Add(v.Command, function()
+		for k, v in pairs(configHMenu.GPS.positions) do
+			concommand.Add(v.command, function()
 
 				hook.Add('HUDPaint', 'hmenu.gps', function()
 				
-					local pos = (v.Position + Vector(0, 0, 95)):ToScreen() 
+					local pos = (v.position + Vector(0, 0, 95)):ToScreen() 
 
-					local firstDistance = v.Position:Distance(LocalPlayer():GetPos())
+					local firstDistance = v.position:Distance(LocalPlayer():GetPos())
 					local secondDistance = math.Round(firstDistance)..' m'
 
 					draw.SimpleTextOutlined(k, 'hmenu.fonts.standartFont', pos.x, pos.y + 50, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color(49, 49, 49))

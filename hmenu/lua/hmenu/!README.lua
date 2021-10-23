@@ -59,7 +59,7 @@ There you can practice adding modules(category)
 
 Example:
 
-AddNewHMenuModule( "Write a name settings here", "Write a name here", function()
+addNewHMenuModule( "Write a name settings here", "Write a name here", function()
 
     -- Here write the function that is executed when pressed. If you do not know how to do this,
     -- then ask your technical administrator about it (I hope you have one)
@@ -75,16 +75,16 @@ and find there the inscription "Modules Settings". Add the following row to the 
 
 Example:
 
-ConfigHMenu.Modules = {
+configHMenu.modules = {
 
     ["Your module settings name"] = {
 
-        TextFont = "HMenuStandartFont", -- Here you can change the font. For you, it's best to choose a font from standard Windows fonts.
-        ColorBackground = Color( 0, 0, 0, 0 ), -- Here you can change the background of the button.
-        ColorText = Color( 255, 255, 255 ), -- Here you can change the color of the button text.
-        IsCategory = true, -- Set to true if the module is a category. Accordingly, if this is not a category - enter false.
+        textFont = "HMenuStandartFont", -- Here you can change the font. For you, it's best to choose a font from standard Windows fonts.
+        colorBackground = Color( 0, 0, 0, 0 ), -- Here you can change the background of the button.
+        colorText = Color( 255, 255, 255 ), -- Here you can change the color of the button text.
+        isCategory = true, -- Set to true if the module is a category. Accordingly, if this is not a category - enter false.
         IsAdminOnly = false, -- Set to true if the module can only use SuperAdmin.
-        Enabled = true -- If you want the module to be enabled, write true. Accordingly, if you want to turn off, enter false.
+        enabled = true -- If you want the module to be enabled, write true. Accordingly, if you want to turn off, enter false.
 
     }, -- Do not forget about this comma!
 
@@ -99,11 +99,11 @@ place where you added the module and add the following lines where the function 
 
 Example:
 
-AddNewHMenuModule( "Settings name here", "Name module here", function()
+addNewHMenuModule( "Settings name here", "Name module here", function()
 
     -- Add the following lines to your module.
 
-    AddNewHMenuModuleButton( "Write a name here", "Write a description here, but if you want to create a button without a description, just write nil", function()
+    addNewHMenuModuleButton( "Write a name here", "Write a description here, but if you want to create a button without a description, just write nil", function()
 
         -- Write a function here at the click of a button.
         -- I repeat, if you do not know how to do this, leave this business to those who can.
@@ -120,12 +120,12 @@ A: We return to the sh_config_settings.lua file again and find there the inscrip
 
 Example:
 
-ConfigHMenu.Music = {
+configHMenu.music = {
 
     ["Write a name here"] = {
 
-        MusicUrl = "http://d.zaix.ru/h7kG.mp3", -- Insert a direct link to the music.
-        Enabled = true -- If you want the music to be enabled, write true. Accordingly, if you want to turn off, enter false.
+        musicUrl = "http://d.zaix.ru/h7kG.mp3", -- Insert a direct link to the music.
+        enabled = true -- If you want the music to be enabled, write true. Accordingly, if you want to turn off, enter false.
 
     }, -- Do not forget about this comma!
 
@@ -139,24 +139,24 @@ A: And again, our favorite sh_config_settings.lua file. Find there the inscripti
 
 Example:
 
-ConfigHMenu.GPS.Category = { -- Here you can add a category.
+configHMenu.GPS.category = { -- Here you can add a category.
 
     ["Write a name category here"] = {
 
-        Enabled = true -- If you want the category to be enabled, write true. Accordingly, if you want to turn off, enter false.
+        enabled = true -- If you want the category to be enabled, write true. Accordingly, if you want to turn off, enter false.
 
     }, -- Do not forget about this comma!
 
 }
 
-ConfigHMenu.GPS.Positions = { -- Here you can add a GPS Position.
+configHMenu.GPS.positions = { -- Here you can add a GPS Position.
 
     ["Write a name here"] = {
 
         Command = "testcommand" -- Write a command to enter the console
         Category = "Main places", -- Here write the name of the category created earlier.
         Position = Vector(-2180.550781, -9207.457031, 67.031250), -- Write a position here.
-        Enabled = true -- If you want the GPS Position to be enabled, write true. Accordingly, if you want to turn off, enter false.
+        enabled = true -- If you want the GPS Position to be enabled, write true. Accordingly, if you want to turn off, enter false.
 
     }, -- Do not forget about this comma!
 
@@ -188,11 +188,11 @@ place where you added the module and add the following lines where the function 
 
 Example:
 
-AddNewHMenuModule( "Settings name here", "Name module here", function()
+addNewHMenuModule( "Settings name here", "Name module here", function()
 
     -- Add the following lines to your module.
 
-    AddNewHMenuModuleSubCategory( "Write a name here", function()
+    addNewHMenuModuleSubCategory( "Write a name here", function()
     
         -- Write a function here at the click of a button. For example, other buttons.
         -- I repeat, if you do not know how to do this, leave this business to those who can.

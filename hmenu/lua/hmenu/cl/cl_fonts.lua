@@ -5,7 +5,7 @@ surface.CreateFont('hmenu.fonts.standartFont', {
 	weight = 200,
 })
 
-surface.CreateFont('hmnenu.fonts.bigFont', {
+surface.CreateFont('hmenu.fonts.bigFont', {
 	font = 'GreatWishes',
 	extended = false,
 	size = 45,

@@ -1,145 +1,145 @@
-ConfigHMenu = ConfigHMenu or {}
+configHMenu = configHMenu or {}
 
-ConfigHMenu.ButtonOpenMenu = KEY_T // possible buttons here: https://wiki.facepunch.com/gmod/Enums/KEY
+configHMenu.buttonOpenMenu = KEY_T // possible buttons here: https://wiki.facepunch.com/gmod/Enums/KEY
 
-ConfigHMenu.Colors = {
-    ['ColorHeader'] = Color(65, 105, 225), // https://imgur.com/a/ULY1Rln
-    ['ColorBackground'] = Color(0, 0, 0, 100) // https://imgur.com/a/MWlvuEH
+configHMenu.colors = {
+    ['colorHeader'] = Color(65, 105, 225), // https://imgur.com/a/ULY1Rln
+    ['colorBackground'] = Color(0, 0, 0, 100) // https://imgur.com/a/MWlvuEH
 }
 
-ConfigHMenu.Modules = {
+configHMenu.modules = {
     ['F4 Menu'] = {
-        TextFont = 'hmenu.fonts.standartFont',
-        ColorBackground = Color(0, 0, 0, 0),
-        ColorText = Color(255, 255, 255),
-        IsCategory = true,
+        textFont = 'hmenu.fonts.standartFont',
+        colorBackground = Color(0, 0, 0, 0),
+        colorText = Color(255, 255, 255),
+        isCategory = true,
         IsAdminOnly = false,
-        Enabled = true
+        enabled = true
     },
 
     ['Scoreboard'] = {
-        TextFont = 'hmenu.fonts.standartFont',
-        ColorBackground = Color(0, 0, 0, 0),
-        ColorText = Color(255, 255, 255),
-        IsCategory = true,
+        textFont = 'hmenu.fonts.standartFont',
+        colorBackground = Color(0, 0, 0, 0),
+        colorText = Color(255, 255, 255),
+        isCategory = true,
         IsAdminOnly = false,
-        Enabled = true
+        enabled = true
     },
 
     ['Character'] = {
-        TextFont = 'hmenu.fonts.standartFont',
-        ColorBackground = Color(0, 0, 0, 0),
-        ColorText = Color(255, 255, 255),
-        IsCategory = true,
+        textFont = 'hmenu.fonts.standartFont',
+        colorBackground = Color(0, 0, 0, 0),
+        colorText = Color(255, 255, 255),
+        isCategory = true,
         IsAdminOnly = false,
-        Enabled = true
+        enabled = true
     },
     
     ['GPS'] = {
-        TextFont = 'hmenu.fonts.standartFont',
-        ColorBackground = Color(0, 0, 0, 0),
-        ColorText = Color(255, 255, 255),
-        IsCategory = true,
+        textFont = 'hmenu.fonts.standartFont',
+        colorBackground = Color(0, 0, 0, 0),
+        colorText = Color(255, 255, 255),
+        isCategory = true,
         IsAdminOnly = false,
-        Enabled = true
+        enabled = true
     },
 
     ['Settings'] = {
-        TextFont = 'hmenu.fonts.standartFont',
-        ColorBackground = Color(0, 0, 0, 0),
-        ColorText = Color(255, 255, 255),
-        IsCategory = true,
+        textFont = 'hmenu.fonts.standartFont',
+        colorBackground = Color(0, 0, 0, 0),
+        colorText = Color(255, 255, 255),
+        isCategory = true,
         IsAdminOnly = false,
-        Enabled = true
+        enabled = true
     },
 
     ['Ask a Question'] = {
-        TextFont = 'hmenu.fonts.standartFont',
-        ColorBackground = Color(0, 0, 0, 0),
-        ColorText = Color(255, 255, 25),
-        IsCategory = false,
+        textFont = 'hmenu.fonts.standartFont',
+        colorBackground = Color(0, 0, 0, 0),
+        colorText = Color(255, 255, 25),
+        isCategory = false,
         IsAdminOnly = false,
-        Enabled = true
+        enabled = true
     },
 
     ['Report'] = {
-        TextFont = 'hmenu.fonts.standartFont',
-        ColorBackground = Color(0, 0, 0, 0),
-        ColorText = Color(255, 76, 91),
-        IsCategory = false,
+        textFont = 'hmenu.fonts.standartFont',
+        colorBackground = Color(0, 0, 0, 0),
+        colorText = Color(255, 76, 91),
+        isCategory = false,
         IsAdminOnly = false,
-        Enabled = true
+        enabled = true
     },
 
     ['Close'] = {
-        TextFont = 'hmenu.fonts.standartFont',
-        ColorBackground = Color(0, 0, 0, 0),
-        ColorText = Color(255, 76, 91),
-        IsCategory = false,
+        textFont = 'hmenu.fonts.standartFont',
+        colorBackground = Color(0, 0, 0, 0),
+        colorText = Color(255, 76, 91),
+        isCategory = false,
         IsAdminOnly = false,
-        Enabled = true
+        enabled = true
     },
 }
 
 // other modules
 
-ConfigHMenu.ModulesSettings = {
-    ['CommandForReport'] = '!report', -- Chat input command for Report button.
-    ['CommandForQuestion'] = '@', -- Chat input command for Ask a Question button. Example: @ How can you make money here?
-    ['EnableFood'] = true -- If you want the food menu to be enabled, write true. Accordingly, if you want to turn off, enter false.
+configHMenu.modulesSettings = {
+    ['commandForReport'] = '!report',
+    ['commandForQuestion'] = '@',
+    ['enableFood'] = true
 }
 
 // f4 menu settings
 
-ConfigHMenu.F4Menu = ConfigHMenu.F4Menu or {} -- Do not touch it.
+configHMenu.f4Menu = configHMenu.f4Menu or {} -- Do not touch it.
 
-ConfigHMenu.F4Menu.Sites = {
+configHMenu.f4Menu.sites = {
     ['Steam'] = { // site name
-        SiteUrl = 'https://steamcommunity.com/',
-        Enabled = true
+        siteUrl = 'https://steamcommunity.com/',
+        enabled = true
     }, 
 
     ['Forum'] = {
-        SiteUrl = 'https://www.google.com/',
-        Enabled = true
+        siteUrl = 'https://www.google.com/',
+        enabled = true
     },
 }
 
 // gps settings
 
-ConfigHMenu.GPS = ConfigHMenu.GPS or {}
+configHMenu.GPS = configHMenu.GPS or {}
 
-ConfigHMenu.GPS.Category = {
+configHMenu.GPS.category = {
     ['Main places'] = {
-        Enabled = true
+        enabled = true
     },
 }
 
-ConfigHMenu.GPS.Positions = {
+configHMenu.GPS.positions = {
     ['Test Position'] = {
-        Command = 'testposition',
-        Category = 'Main places',
-        Position = Vector( -1447.090210, -426.852753, -83.985886 ),
-        Enabled = true
+        command = 'testposition',
+        category = 'Main places',
+        position = Vector( -1447.090210, -426.852753, -83.985886 ),
+        enabled = true
     },
 }
 
 // sound settings
 
-ConfigHMenu.Music = {
+configHMenu.music = {
     ['Test Music'] = {
-        MusicUrl = 'http://d.zaix.ru/h7kG.mp3',
-        Enabled = true
+        musicUrl = 'http://d.zaix.ru/h7kG.mp3',
+        enabled = true
     },
 }
 
 // language settings
 
-ConfigHMenu.Language = ConfigHMenu.Language or {}
+configHMenu.language = configHMenu.language or {}
 
-ConfigHMenu.Language.Settings = 'English' // change language (English, Russian, French)
+configHMenu.language.settings = 'English' // change language (English, Russian, French)
 
-ConfigHMenu.Language['English'] = {
+configHMenu.language['English'] = {
     ['Menu'] = 'Menu',
     ['F4 Menu'] = 'F4 Menu',
     ['Contacts'] = 'Contacts',
@@ -185,7 +185,7 @@ ConfigHMenu.Language['English'] = {
     ['Disconnect'] = 'Disconnect'
 }
 
-ConfigHMenu.Language['Russian'] = {
+configHMenu.language['Russian'] = {
     ['Menu'] = 'Меню',
     ['F4 Menu'] = 'F4 Меню',
     ['Contacts'] = 'Контакты',
@@ -231,7 +231,7 @@ ConfigHMenu.Language['Russian'] = {
     ['Disconnect'] = 'Покинуть сервер'
 }
 
-ConfigHMenu.Language['French'] = {
+configHMenu.language['French'] = {
     ['Menu'] = 'Menu',
     ['F4 Menu'] = 'F4 Menu',
     ['Contacts'] = 'Contacts',
